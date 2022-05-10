@@ -1,0 +1,61 @@
+//// -- LEVEL 1
+//// -- Tables and References
+
+// Creating tables
+Table Wycieczka {
+  ID_Wycieczki int pk
+  Data_rozpoczecia date
+  Data_zakonczenia date
+  Cena_biletu int
+  Miejsce_wycieczki string
+}
+
+Table Przewodnik {
+  Pesel int pk
+  Imie string
+  Nazwisko string
+  Data_rozpoczecia_pracy date
+}
+
+Table Turysta {
+  ID_Turysty int pk
+  Imie string
+  Nazwisko string
+}
+
+Table Grupa {
+  ID_Grupy int pk
+  Pesel_przewodnika int
+}
+
+Table PrzynaleznoscDoGrupy {
+  ID_Turysty int pk
+  ID_Grupy int pk 
+}
+
+Table PrzeprowadzanieWycieczki {
+  ID_Grupy int pk
+    ID_Wycieczki int pk
+}
+
+Table TerminarzPrzewodnikow {
+  ID_Terminu int pk
+  Pesel_przewodnika int
+  Data_rozpoczecia date
+  Data_zakonczenia date
+}
+
+Table OpiniaPrzewodnika {
+  ID_Opinii int pk 
+  Pesel_przewodnika int
+  Ocena int
+  Opis string
+}
+
+Ref: PrzynaleznoscDoGrupy.ID_Grupy > Grupa.ID_Grupy  
+Ref: PrzynaleznoscDoGrupy.ID_Turysty > Turysta.ID_Turysty  
+Ref: Grupa.Pesel_przewodnika > Przewodnik.Pesel
+Ref: Wycieczka.ID_Wycieczki < PrzeprowadzanieWycieczki.ID_Wycieczki
+Ref: Grupa.ID_Grupy < PrzeprowadzanieWycieczki.ID_Grupy
+Ref: Przewodnik.Pesel < TerminarzPrzewodnikow.Pesel_przewodnika
+Ref: OpiniaPrzewodnika.Pesel_przewodnika > Przewodnik.Pesel
