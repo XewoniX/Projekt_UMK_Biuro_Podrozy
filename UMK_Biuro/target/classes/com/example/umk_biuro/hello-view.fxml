@@ -18,10 +18,6 @@
                   <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
                   <Button alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#usun" style="-fx-background-color: grey;" text="Usun" textAlignment="CENTER" />
                   <TextField fx:id="text" prefHeight="25.0" prefWidth="198.0" promptText="wprowadz ID/PESEL do usuniecia" />
-                  <Button alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#usun" style="-fx-background-color: grey;" text="Usun" textAlignment="CENTER" />
-                  <TextField fx:id="text" prefHeight="25.0" prefWidth="198.0" promptText="wprowadz ID/PESEL do usuniecia" />
-                  <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
-
                   <Button mnemonicParsing="false" onAction="#addDane" style="-fx-background-color: grey;" text="Dodaj Dane" />
 
               </items>
