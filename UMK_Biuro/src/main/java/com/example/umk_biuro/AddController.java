@@ -120,7 +120,7 @@ public class AddController implements Initializable {
 
     @FXML
     private void addDane(ActionEvent event){
-        
+
         try {
             if(Objects.equals(cBox.getValue(), "grupa")) {
 
