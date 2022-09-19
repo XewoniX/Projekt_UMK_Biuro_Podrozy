@@ -2,10 +2,15 @@ package com.example.umk_biuro;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -323,6 +328,17 @@ public class Controller implements Initializable {
             } catch(Exception e){
                 e.printStackTrace();
             }
+    }
 
+    public void addDane(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("addDane.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Dodaj dane");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(Label0.getScene().getWindow());
+        stage.setScene(scene);
+        stage.show();
     }
 }
