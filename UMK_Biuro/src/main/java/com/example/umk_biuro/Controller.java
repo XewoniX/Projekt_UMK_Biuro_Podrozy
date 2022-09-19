@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -29,19 +30,62 @@ public class Controller implements Initializable {
 
     private String[] options = {"grupa","opinia przewodnika","przeprowadzenie wycieczki","przewodnik","przynaleznosc do grupy","terminarz przewodnikow","turysta",
             "wycieczka","---------------","grupa z przewodnikiem","grupy ilosci osob","przewodnik z ocenami","turysta i wycieczki","wycieczka dni srednia cena","wycieczka zarobek"};
+    @FXML
+    private TextField text;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     choiceBox.getItems().addAll(options);
     }
 
+    DatabaseConnection connectNow = new DatabaseConnection();
+    Connection connectDB = connectNow.getConnection();
 
+    public void usun(ActionEvent event) {
+    try {
+        String numer = text.getText();
+        Statement statement = connectDB.createStatement();
+        if(Objects.equals(choiceBox.getValue(), "turysta"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Turysty = " + numer + ";");
+        }
+        if(Objects.equals(choiceBox.getValue(), "grupa"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Grupy = " + numer + ";");
+        }
+        if(Objects.equals(choiceBox.getValue(), "opinia przewodnika"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + "opiniaprzewodnika" + "` WHERE ID_Opinii = " + numer + ";");
+        }
+        if(Objects.equals(choiceBox.getValue(), "przeprowadzenie wycieczki"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + "przeprowadzonewycieczki" + "` WHERE ID_Grupy = " + numer + ";");
+        }
+        if(Objects.equals(choiceBox.getValue(), "przewodnik"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE PESEL = " + numer + ";");
+        }
+        if(Objects.equals(choiceBox.getValue(), "przynaleznosc do grupy"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + "przynaleznoscdogrupy" + "` WHERE ID_Grupy = " + numer + ";");
+        }
+        if(Objects.equals(choiceBox.getValue(), "terminarz przewodnikow"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + "terminarzprzewodnikow" + "` WHERE ID_Terminu = " + numer + ";");
+        }
+        if(Objects.equals(choiceBox.getValue(), "wycieczka"))
+        {
+            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Wycieczki = " + numer + ";");
+        }
+        }
+    catch(Exception e){
+        e.printStackTrace();
+    }
+    }
     public void wyswietl(ActionEvent event) {
-
-
         try {
+
             if (Objects.equals(choiceBox.getValue(), "turysta")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `turysta`;");
                 Label0.setText("ID_Turysty");
