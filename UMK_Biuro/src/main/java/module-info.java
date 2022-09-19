@@ -10,6 +10,7 @@ module com.example.umk_biuro {
     requires com.dlsc.formsfx;
     requires validatorfx;
     requires eu.hansolo.tilesfx;
+    requires java.desktop;
 
     opens com.example.umk_biuro to javafx.fxml;
     exports com.example.umk_biuro;

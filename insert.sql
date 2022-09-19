@@ -11,9 +11,9 @@ INSERT INTO
 
 INSERT INTO
 	Przewodnik(PESEL, Imie, Nazwisko, Data_rozpoczecia_pracy) VALUES
-		('11111111111', 'Imie1', 'Nazwisko771', '2000-01-01'),
-		('11111111112', 'Imie2', 'Nazwisko772', '2000-02-01'),
-		('11111111113', 'Imie3', 'Nazwisko773', '2000-03-01');
+		('11111111111', 'Imie1', 'Nazwisko771', '2000.01.01'),
+		('11111111112', 'Imie2', 'Nazwisko772', '2000.02.01'),
+		('11111111113', 'Imie3', 'Nazwisko773', '2000.03.01');
 
 INSERT INTO
 	TerminarzPrzewodnikow(PESEL_przewodnika, Data_rozpoczecia, Data_zakonczenia) VALUES
