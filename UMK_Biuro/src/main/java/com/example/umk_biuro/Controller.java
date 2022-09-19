@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -23,6 +20,18 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    @FXML
+    private TableView table;
+    @FXML
+    private TableColumn table1;
+    @FXML
+    private TableColumn table2;
+    @FXML
+    private TableColumn table3;
+    @FXML
+    private TableColumn table4;
+    @FXML
+    private TableColumn table5;
     @FXML
     private Label Label0;
     @FXML
@@ -96,17 +105,18 @@ public class Controller implements Initializable {
             if (Objects.equals(choiceBox.getValue(), "turysta")) {
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `turysta`;");
-                Label0.setText("ID_Turysty");
-                Label1.setText("Imie");
-                Label2.setText("Nazwisko");
-                Label3.setText("Email");
+
+                Label0.setText("ID_Turysty"+"\n");
+                Label1.setText("Imie"+"\n");
+                Label2.setText("Nazwisko"+"\n");
+                Label3.setText("Email"+"\n");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Turysty"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("imie"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Nazwisko"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Email"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Turysty")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("imie")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Nazwisko")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Email")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -116,15 +126,15 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `grupa`;");
-                Label0.setText("ID_Grupy");
-                Label1.setText("PESEL_przewodnika");
+                Label0.setText("ID_Grupy"+"\n");
+                Label1.setText("PESEL_przewodnika"+"\n");
                 Label2.setText("");
                 Label3.setText("");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL_przewodnika"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL_przewodnika")+"\n");
                     Label2.setText(Label2.getText() + "\n");
                     Label3.setText(Label3.getText() + "\n");
                     Label4.setText(Label4.getText() + "\n");
@@ -136,17 +146,17 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `opiniaprzewodnika`;");
-                Label0.setText("ID_Opinii");
-                Label1.setText("PESEL_przewodnika");
-                Label2.setText("Ocena");
-                Label3.setText("Opis");
+                Label0.setText("ID_Opinii"+"\n");
+                Label1.setText("PESEL_przewodnika"+"\n");
+                Label2.setText("Ocena"+"\n");
+                Label3.setText("Opis"+"\n");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Opinii"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL_przewodnika"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Ocena"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Opis"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Opinii")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL_przewodnika")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Ocena")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Opis")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -156,15 +166,15 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przeprowadzaniewycieczki`;");
-                Label0.setText("ID_Grupy");
-                Label1.setText("ID_Wycieczki");
+                Label0.setText("ID_Grupy"+"\n");
+                Label1.setText("ID_Wycieczki"+"\n");
                 Label2.setText("");
                 Label3.setText("");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki")+"\n");
                     Label2.setText(Label2.getText() + "\n");
                     Label3.setText(Label3.getText() + "\n");
                     Label4.setText(Label4.getText() + "\n");
@@ -176,17 +186,17 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przewodnik`;");
-                Label0.setText("PESEL");
-                Label1.setText("Imie");
-                Label2.setText("Nazwisko");
-                Label3.setText("Data rozpoczecia pracy");
+                Label0.setText("PESEL"+"\n");
+                Label1.setText("Imie"+"\n");
+                Label2.setText("Nazwisko"+"\n");
+                Label3.setText("Data rozpoczecia pracy"+"\n");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("PESEL"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Imie"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Nazwisko"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Data_rozpoczecia_pracy"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("PESEL")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Imie")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Nazwisko")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Data_rozpoczecia_pracy")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -196,15 +206,15 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przynaleznoscdogrupy`;");
-                Label0.setText("ID_Grupy");
-                Label1.setText("Id_Turysty");
+                Label0.setText("ID_Grupy"+"\n");
+                Label1.setText("Id_Turysty"+"\n");
                 Label2.setText("");
                 Label3.setText("");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("ID_Turysty"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("ID_Turysty")+"\n");
                     Label2.setText(Label2.getText() + "\n");
                     Label3.setText(Label3.getText() + "\n");
                     Label4.setText(Label4.getText() + "\n");
@@ -217,17 +227,17 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `terminarzprzewodnikow`;");
-                Label0.setText("ID_Terminu");
-                Label1.setText("PESEL przewodnika");
-                Label2.setText("Data rozpoczęcia");
-                Label3.setText("Data zakończenia");
+                Label0.setText("ID_Terminu"+"\n");
+                Label1.setText("PESEL przewodnika"+"\n");
+                Label2.setText("Data rozpoczęcia"+"\n");
+                Label3.setText("Data zakończenia"+"\n");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Terminu"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL_przewodnika"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Data_rozpoczecia"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Data_zakonczenia"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Terminu")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL_przewodnika")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Data_rozpoczecia")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Data_zakonczenia")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -237,18 +247,18 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `wycieczka`;");
-                Label0.setText("ID_Wycieczki");
-                Label1.setText("Data rozpoczecia");
-                Label2.setText("Data zakonczenia");
-                Label3.setText("Data cena biletu");
-                Label4.setText("Miejsce wycieczki");
+                Label0.setText("ID_Wycieczki"+"\n");
+                Label1.setText("Data rozpoczecia"+"\n");
+                Label2.setText("Data zakonczenia"+"\n");
+                Label3.setText("Data cena biletu"+"\n");
+                Label4.setText("Miejsce wycieczki"+"\n");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Data_rozpoczecia"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Data_zakonczenia"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Cena_biletu"));
-                    Label4.setText(Label4.getText() + "\n"  + queryOutputUserName.getString("Miejsce_wycieczki"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Data_rozpoczecia")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Data_zakonczenia")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Cena_biletu")+"\n");
+                    Label4.setText(Label4.getText() + "\n"  + queryOutputUserName.getString("Miejsce_wycieczki")+"\n");
                 }
             }
 
@@ -257,17 +267,17 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `grupazprzewodnikiem`;");
-                Label0.setText("ID_Grupy");
-                Label1.setText("PESEL");
-                Label2.setText("Imie");
-                Label3.setText("Nazwisko");
+                Label0.setText("ID_Grupy"+"\n");
+                Label1.setText("PESEL"+"\n");
+                Label2.setText("Imie"+"\n");
+                Label3.setText("Nazwisko"+"\n");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Imie"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Nazwisko"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy"+"\n"));
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Imie")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Nazwisko")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -277,15 +287,15 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `grupyiloscosob`;");
-                Label0.setText("ID_Grupy");
-                Label1.setText("Ilosc osob w grupie");
+                Label0.setText("ID_Grupy"+"\n");
+                Label1.setText("Ilosc osob w grupie"+"\n");
                 Label2.setText("");
                 Label3.setText("");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilo?? os?b w grupie"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilo?? os?b w grupie")+"\n");
                     Label2.setText(Label2.getText() + "\n");
                     Label3.setText(Label3.getText() + "\n");
                     Label4.setText(Label4.getText() + "\n");
@@ -297,17 +307,17 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przewodnikzocenami`;");
-                Label0.setText("PESEL");
-                Label1.setText("Imie");
-                Label2.setText("Nazwisko");
-                Label3.setText("Srednia ocena");
+                Label0.setText("PESEL"+"\n");
+                Label1.setText("Imie"+"\n");
+                Label2.setText("Nazwisko"+"\n");
+                Label3.setText("Srednia ocena"+"\n");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("PESEL"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Imie"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Nazwisko"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("?rednia ocena"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("PESEL")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Imie")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Nazwisko")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("?rednia ocena")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -317,18 +327,18 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `turystaiwycieczki`;");
-                Label0.setText("Imie");
-                Label1.setText("Nazwisko");
-                Label2.setText("ID_Turysty");
-                Label3.setText("ID_wycieczki");
-                Label4.setText("Miejsce wycieczki");
+                Label0.setText("Imie"+"\n");
+                Label1.setText("Nazwisko"+"\n");
+                Label2.setText("ID_Turysty"+"\n");
+                Label3.setText("ID_wycieczki"+"\n");
+                Label4.setText("Miejsce wycieczki"+"\n");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("Imie"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Nazwisko"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("ID_Turysty"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("ID_wycieczki"));
-                    Label4.setText(Label4.getText() + "\n"  + queryOutputUserName.getString("Miejsce_wycieczki"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("Imie")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Nazwisko")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("ID_Turysty")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("ID_wycieczki")+"\n");
+                    Label4.setText(Label4.getText() + "\n"  + queryOutputUserName.getString("Miejsce_wycieczki")+"\n");
                 }
             }
 
@@ -337,17 +347,17 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `wycieczkadnisredniacena`;");
-                Label0.setText("ID_Wycieczki");
-                Label1.setText("Ilosc dni");
-                Label2.setText("Cena biletu");
-                Label3.setText("Srednia cena za dzien");
+                Label0.setText("ID_Wycieczki"+"\n");
+                Label1.setText("Ilosc dni"+"\n");
+                Label2.setText("Cena biletu"+"\n");
+                Label3.setText("Srednia cena za dzien"+"\n");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilo?? dni"));
-                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Cena_biletu"));
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("?rednia cena za 1 dzie?"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilo?? dni")+"\n");
+                    Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Cena_biletu")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("?rednia cena za 1 dzie?")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -357,15 +367,15 @@ public class Controller implements Initializable {
                 Connection connectDB = connectNow.getConnection();
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `wycieczkazarobek`;");
-                Label0.setText("ID_Wycieczki");
-                Label1.setText("przychod");
+                Label0.setText("ID_Wycieczki"+"\n");
+                Label1.setText("przychod"+"\n");
                 Label2.setText("");
                 Label3.setText("");
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki"));
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("przych?d"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("przych?d")+"\n");
                     Label2.setText(Label2.getText() + "\n");
                     Label3.setText(Label3.getText() + "\n");
                     Label4.setText(Label4.getText() + "\n");
