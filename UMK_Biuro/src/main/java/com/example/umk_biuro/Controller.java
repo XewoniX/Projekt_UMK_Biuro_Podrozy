@@ -383,7 +383,6 @@ public class Controller implements Initializable {
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         stage.setTitle("Dodaj dane");
-        stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Label0.getScene().getWindow());
         stage.setScene(scene);
         stage.show();

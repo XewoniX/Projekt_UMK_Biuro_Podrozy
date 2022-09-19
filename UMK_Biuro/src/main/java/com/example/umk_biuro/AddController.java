@@ -148,6 +148,7 @@ public class AddController implements Initializable {
             } else if(Objects.equals(cBox.getValue(), "wycieczka")){
                 status = statement.executeUpdate("INSERT INTO Wycieczka(Data_rozpoczecia, Data_zakonczenia, Cena_biletu, Miejsce_wycieczki) VALUES ('" + textfield0.getText() + "','" + textfield1.getText() + "','" + textfield2.getText() + "','" + textfield3.getText() + "');");
             }
+            textfield0.setText(""); textfield1.setText(""); textfield2.setText(""); textfield3.setText("");
             if (status > 0) output.setText("Wprowadzenie danych do bazy powiodło się.");
             else output.setText("Wystąpił problem przy wprowadzaniu danych do bazy.");
             Timer timer = new Timer();
