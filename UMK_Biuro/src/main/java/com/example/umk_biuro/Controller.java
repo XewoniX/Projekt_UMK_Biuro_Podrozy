@@ -59,53 +59,53 @@ public class Controller implements Initializable {
     Connection connectDB = connectNow.getConnection();
 
     public void usun(ActionEvent event) {
-    try {
-        String numer = text.getText();
-        Statement statement = connectDB.createStatement();
-        if(Objects.equals(choiceBox.getValue(), "turysta"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Turysty = " + numer + ";");
+        try {
+            String numer = text.getText();
+            Statement statement = connectDB.createStatement();
+            if(Objects.equals(choiceBox.getValue(), "turysta"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Turysty = " + numer + ";");
+            }
+            if(Objects.equals(choiceBox.getValue(), "grupa"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Grupy = " + numer + ";");
+            }
+            if(Objects.equals(choiceBox.getValue(), "opinia przewodnika"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + "opiniaprzewodnika" + "` WHERE ID_Opinii = " + numer + ";");
+            }
+            if(Objects.equals(choiceBox.getValue(), "przeprowadzenie wycieczki"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + "przeprowadzonewycieczki" + "` WHERE ID_Grupy = " + numer + ";");
+            }
+            if(Objects.equals(choiceBox.getValue(), "przewodnik"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE PESEL = " + numer + ";");
+            }
+            if(Objects.equals(choiceBox.getValue(), "przynaleznosc do grupy"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + "przynaleznoscdogrupy" + "` WHERE ID_Grupy = " + numer + ";");
+            }
+            if(Objects.equals(choiceBox.getValue(), "terminarz przewodnikow"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + "terminarzprzewodnikow" + "` WHERE ID_Terminu = " + numer + ";");
+            }
+            if(Objects.equals(choiceBox.getValue(), "wycieczka"))
+            {
+                int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Wycieczki = " + numer + ";");
+            }
+            wyswietl(event);
+        } catch(Exception e){
+            e.printStackTrace();
         }
-        if(Objects.equals(choiceBox.getValue(), "grupa"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Grupy = " + numer + ";");
-        }
-        if(Objects.equals(choiceBox.getValue(), "opinia przewodnika"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + "opiniaprzewodnika" + "` WHERE ID_Opinii = " + numer + ";");
-        }
-        if(Objects.equals(choiceBox.getValue(), "przeprowadzenie wycieczki"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + "przeprowadzonewycieczki" + "` WHERE ID_Grupy = " + numer + ";");
-        }
-        if(Objects.equals(choiceBox.getValue(), "przewodnik"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE PESEL = " + numer + ";");
-        }
-        if(Objects.equals(choiceBox.getValue(), "przynaleznosc do grupy"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + "przynaleznoscdogrupy" + "` WHERE ID_Grupy = " + numer + ";");
-        }
-        if(Objects.equals(choiceBox.getValue(), "terminarz przewodnikow"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + "terminarzprzewodnikow" + "` WHERE ID_Terminu = " + numer + ";");
-        }
-        if(Objects.equals(choiceBox.getValue(), "wycieczka"))
-        {
-            int deleteCount = statement.executeUpdate("DELETE FROM `" + choiceBox.getValue() + "` WHERE ID_Wycieczki = " + numer + ";");
-        }
-        }
-    catch(Exception e){
-        e.printStackTrace();
-    }
     }
     public void wyswietl(ActionEvent event) {
         try {
-
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection connectDB = connectNow.getConnection();
+            Statement statement = connectDB.createStatement();
             if (Objects.equals(choiceBox.getValue(), "turysta")) {
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `turysta`;");
-
                 Label0.setText("ID_Turysty"+"\n");
                 Label1.setText("Imie"+"\n");
                 Label2.setText("Nazwisko"+"\n");
@@ -122,9 +122,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "grupa")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `grupa`;");
                 Label0.setText("ID_Grupy"+"\n");
                 Label1.setText("PESEL_przewodnika"+"\n");
@@ -142,9 +139,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "opinia przewodnika")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `opiniaprzewodnika`;");
                 Label0.setText("ID_Opinii"+"\n");
                 Label1.setText("PESEL_przewodnika"+"\n");
@@ -162,9 +156,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "przeprowadzenie wycieczki")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przeprowadzaniewycieczki`;");
                 Label0.setText("ID_Grupy"+"\n");
                 Label1.setText("ID_Wycieczki"+"\n");
@@ -182,9 +173,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "przewodnik")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przewodnik`;");
                 Label0.setText("PESEL"+"\n");
                 Label1.setText("Imie"+"\n");
@@ -202,9 +190,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "przynaleznosc do grupy")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przynaleznoscdogrupy`;");
                 Label0.setText("ID_Grupy"+"\n");
                 Label1.setText("Id_Turysty"+"\n");
@@ -221,11 +206,7 @@ public class Controller implements Initializable {
                 }
             }
 
-
             if (Objects.equals(choiceBox.getValue(), "terminarz przewodnikow")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `terminarzprzewodnikow`;");
                 Label0.setText("ID_Terminu"+"\n");
                 Label1.setText("PESEL przewodnika"+"\n");
@@ -243,9 +224,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "wycieczka")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `wycieczka`;");
                 Label0.setText("ID_Wycieczki"+"\n");
                 Label1.setText("Data rozpoczecia"+"\n");
@@ -263,9 +241,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "grupa z przewodnikiem")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `grupazprzewodnikiem`;");
                 Label0.setText("ID_Grupy"+"\n");
                 Label1.setText("PESEL"+"\n");
@@ -283,9 +258,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "grupy ilosci osob")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `grupyiloscosob`;");
                 Label0.setText("ID_Grupy"+"\n");
                 Label1.setText("Ilosc osob w grupie"+"\n");
@@ -303,9 +275,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "przewodnik z ocenami")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `przewodnikzocenami`;");
                 Label0.setText("PESEL"+"\n");
                 Label1.setText("Imie"+"\n");
@@ -323,9 +292,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "turysta i wycieczki")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `turystaiwycieczki`;");
                 Label0.setText("Imie"+"\n");
                 Label1.setText("Nazwisko"+"\n");
@@ -343,9 +309,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "wycieczka dni srednia cena")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `wycieczkadnisredniacena`;");
                 Label0.setText("ID_Wycieczki"+"\n");
                 Label1.setText("Ilosc dni"+"\n");
@@ -363,9 +326,6 @@ public class Controller implements Initializable {
             }
 
             if (Objects.equals(choiceBox.getValue(), "wycieczka zarobek")) {
-                DatabaseConnection connectNow = new DatabaseConnection();
-                Connection connectDB = connectNow.getConnection();
-                Statement statement = connectDB.createStatement();
                 ResultSet queryOutputUserName = statement.executeQuery("SELECT * FROM `wycieczkazarobek`;");
                 Label0.setText("ID_Wycieczki"+"\n");
                 Label1.setText("przychod"+"\n");
@@ -375,7 +335,7 @@ public class Controller implements Initializable {
 
                 while (queryOutputUserName.next()) {
                     Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki")+"\n");
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("przych?d")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("przychód")+"\n");
                     Label2.setText(Label2.getText() + "\n");
                     Label3.setText(Label3.getText() + "\n");
                     Label4.setText(Label4.getText() + "\n");
