@@ -1,0 +1,4 @@
+W folderze UMK_Biuro są pliki projektu do uruchomienia w InteliJ IDEA
+Używana baza to MySQL w usłuche XAMP na windows 10 (lokalnie, należy ją stworzyć z plików w folderze)
+
+Stworzone przez: Damian Kreński(308181) Jakub Orłowski(308189)
