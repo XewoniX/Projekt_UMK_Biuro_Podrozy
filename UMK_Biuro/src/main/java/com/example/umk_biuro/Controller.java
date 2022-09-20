@@ -249,7 +249,7 @@ public class Controller implements Initializable {
                 Label4.setText("");
 
                 while (queryOutputUserName.next()) {
-                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy"+"\n"));
+                    Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy")+"\n");
                     Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("PESEL")+"\n");
                     Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Imie")+"\n");
                     Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Nazwisko")+"\n");
@@ -267,7 +267,7 @@ public class Controller implements Initializable {
 
                 while (queryOutputUserName.next()) {
                     Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Grupy")+"\n");
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilo?? os?b w grupie")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilość osób w grupie")+"\n");
                     Label2.setText(Label2.getText() + "\n");
                     Label3.setText(Label3.getText() + "\n");
                     Label4.setText(Label4.getText() + "\n");
@@ -286,7 +286,7 @@ public class Controller implements Initializable {
                     Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("PESEL")+"\n");
                     Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Imie")+"\n");
                     Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Nazwisko")+"\n");
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("?rednia ocena")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Średnia ocena")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }
@@ -318,9 +318,9 @@ public class Controller implements Initializable {
 
                 while (queryOutputUserName.next()) {
                     Label0.setText(Label0.getText() + "\n"  + queryOutputUserName.getString("ID_Wycieczki")+"\n");
-                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilo?? dni")+"\n");
+                    Label1.setText(Label1.getText() + "\n"  + queryOutputUserName.getString("Ilość dni")+"\n");
                     Label2.setText(Label2.getText() + "\n"  + queryOutputUserName.getString("Cena_biletu")+"\n");
-                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("?rednia cena za 1 dzie?")+"\n");
+                    Label3.setText(Label3.getText() + "\n"  + queryOutputUserName.getString("Średnia cena za 1 dzień")+"\n");
                     Label4.setText(Label4.getText() + "\n");
                 }
             }

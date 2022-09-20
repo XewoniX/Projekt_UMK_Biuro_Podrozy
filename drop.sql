@@ -1,5 +1,3 @@
-USE TurystykaBazaDanych
-go
 
 DROP VIEW PrzewodnikZOcenami
 DROP VIEW GrupyIloscOsob
